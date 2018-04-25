@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { pages } from './config/pages-config';
 
 @Component({
   selector: 'tj-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tj';
+  public routes = Object.keys(pages).map((key, index) => {
+    return {path:pages[key].path};
+  });
+  
 }
