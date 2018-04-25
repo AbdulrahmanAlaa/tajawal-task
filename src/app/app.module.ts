@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchHotelComponent } from './search-hotel/search-hotel.component';
 import { HotelComponent } from './hotel/hotel.component';
-
+import {ReactiveFormsModule,FormsModule} from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,11 @@ import { HotelComponent } from './hotel/hotel.component';
     SearchHotelComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
