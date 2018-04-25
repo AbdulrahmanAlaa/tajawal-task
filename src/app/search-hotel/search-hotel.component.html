@@ -6,7 +6,6 @@
                 [ngClass]="{'is-invalid':(submitted || form.controls.to.touched)&& (!form.controls.from.value ||  dateError) }"  
                 [bsConfig]="{ containerClass:'theme-default'}"
                 id="from"
-                type="text"
                 placeholder="from..."
                 class="form-control"
                 bsDatepicker
@@ -27,7 +26,6 @@
                 [ngClass]="{'is-invalid': (submitted|| form.controls.to.touched) && (!form.controls.to.value ||  dateError) }"  
                 [bsConfig]="{ containerClass:'theme-default'}"
                 id="to"
-                type="text"
                 placeholder="to..."
                 class="form-control"
                 bsDatepicker
