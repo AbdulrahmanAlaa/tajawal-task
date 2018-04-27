@@ -1,0 +1,14 @@
+.no-content{
+    min-height: 400px;
+   .card-body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 20%; 
+        color: #7f8c8d;
+        i{
+            font-size: 100px;
+        }
+   }
+}

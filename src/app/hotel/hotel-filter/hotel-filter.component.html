@@ -1,3 +1,19 @@
-<p>
-  hotel-filter works!
-</p>
+    <!-- Search Part  -->
+<div class="input-group">
+  <label for="search" class="input-group-addon">
+    <i class="oi oi-magnifying-glass"></i>
+  </label>
+  <input 
+  id="search"
+  name="search"
+  (change)="changePrice($event)" 
+  class="form-control" 
+  placeholder="Hotel Name ..." 
+  >
+</div>
+
+    <!-- Price Filter -->
+<div class="form-group mt-4">
+  <label for="slider">Price Filter: </label>
+  <input type="range" class="form-control" id="slider" placeholder="price...">
+</div>

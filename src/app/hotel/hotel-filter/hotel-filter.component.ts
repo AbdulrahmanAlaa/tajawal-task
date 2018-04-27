@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'tj-hotel-filter',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotel-filter.component.scss']
 })
 export class HotelFilterComponent implements OnInit {
-
-  constructor() { }
+  public formSearch: FormGroup;
+  constructor(
+    private _fb : FormBuilder
+  ) { }
 
   ngOnInit() {
+    this._fb.group({
+      search:['',Validators.required]
+    });
+  }
+
+  submit($event){
+    console.log('clicked',$event);
+    $event.preventDeafult();
+    if (this.formSearch.valid) {
+      
+    }
   }
 
 }

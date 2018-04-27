@@ -8,6 +8,7 @@ import { SearchHotelComponent } from './search-hotel/search-hotel.component';
 import { HotelComponent } from './hotel/hotel.component';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NoContentComponent } from './hotels/no-content/no-content.component';
 
 @NgModule({
   declarations: [

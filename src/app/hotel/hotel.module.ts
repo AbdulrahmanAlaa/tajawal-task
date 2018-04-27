@@ -6,6 +6,7 @@ import { HotelItemComponent } from './hotel-item/hotel-item.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { HotelFilterComponent } from './hotel-filter/hotel-filter.component';
 import { HotelHeaderComponent } from './hotel-header/hotel-header.component';
+import { NoContentComponent } from '../hotels/no-content/no-content.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { HotelHeaderComponent } from './hotel-header/hotel-header.component';
     HotelItemComponent,
     HotelListComponent,
     HotelFilterComponent,
-    HotelHeaderComponent
+    HotelHeaderComponent,
+    NoContentComponent
   ]
 })
 export class HotelModule { }
