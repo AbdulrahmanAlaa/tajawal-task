@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { pages } from './config/pages-config';
 import { TranslateService } from '@ngx-translate/core';
 import { LANGUAGES, DEFAULT_LANGUAGE } from './config/defines';
 
@@ -8,7 +7,9 @@ import { LANGUAGES, DEFAULT_LANGUAGE } from './config/defines';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  
+  //Load Navigation links from pages config
+  public routes = [];
+
   /**
    * parameters passed by angular Dependency Injection 
    * @param translate  
@@ -18,15 +19,25 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-     //Configure the Language to be English by default
+    //Configure the Language to be English by default
     this.translate.addLangs(LANGUAGES);
     this.translate.setDefaultLang(DEFAULT_LANGUAGE);
     this.translate.use(DEFAULT_LANGUAGE);
+    this.translate.get('common.pages').subscribe((val) => {
+      this.routes = Object.keys(val).map((key, index) => {
+        return { path: val[key].path, name: val[key].name };
+      });
+    });
   }
 
-  //Load Navigation links from pages config
-  public routes = Object.keys(pages).map((key, index) => {
-    return { path: pages[key].path };
-  });
+  languageChanged(language){
+     //Configure the Language to be English by default
+     this.translate.use(language);
+     this.translate.get('common.pages').subscribe((val) => {
+      this.routes = Object.keys(val).map((key, index) => {
+        return { path: val[key].path, name: val[key].name };
+      });
+    });
+  }
 
 }

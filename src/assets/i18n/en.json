@@ -1,7 +1,26 @@
 {
+    "styles":{
+        "text-align":"left",
+        "direction":"ltr"
+    },
     "title": "Tajawal",
     "no-hotels": "No hotels found",
     "common":{
+        "language":"Languages",
+        "classes":{
+            "input-group-addon":"input-group-addon"
+        },
+        "pages": {
+            "search": {
+                "name":"search",
+                "path": "search"
+            },
+            "hotels": {
+                "name":"hotels",
+                "path": "hotels",
+                "loadChildren": "app/hotel/hotel.module#HotelModule"
+            }
+        },
         "required":"please fill in this field"
     },
     "search": {

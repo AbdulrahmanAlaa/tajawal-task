@@ -1,7 +1,26 @@
 {
+    "styles":{
+        "text-align":"right",
+        "direction":"rtl"
+    },
     "title": "تجول",
     "no-hotels": "لا يوجد فنادق متاحة",
     "common":{
+        "language":"اللغات",
+         "classes":{
+            "input-group-addon":"ar-input-group-addon"
+        },
+        "pages": {
+            "search": {
+                "name":"بحث",
+                "path": "search"
+            },
+            "hotels": {
+                "name":"الفنادق",
+                "path": "hotels",
+                "loadChildren": "app/hotel/hotel.module#HotelModule"
+            }
+        },
         "required":"من فضلك املا الحقول المطلوبة"
     },
     "search": {

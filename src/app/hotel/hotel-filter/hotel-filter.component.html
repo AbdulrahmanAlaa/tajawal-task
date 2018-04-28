@@ -1,24 +1,26 @@
-<!-- Search Part  -->
-<div class="input-group">
-  <label for="search" class="input-group-addon">
-    <i class="oi oi-magnifying-glass"></i>
-  </label>
-  <input 
-    id="search"
-    name="search"
-    [(ngModel)]="hotelName"
-    class="form-control" 
-    placeholder="{{'hotel-name' | translate}}" 
-  >
-</div>
-<!-- Price Filter -->
-<div class="form-group mt-4">
-  <label for="slider">{{'price-filter' | translate}} {{price}}</label>
-  <input [(ngModel)]="price" 
-    type="range"
-    [min]="priceFilter.min"
-    [max]="priceFilter.max"
-    class="form-control"
-    id="slider"
-   >
+<div [ngStyle]="{'text-align': 'styles.text-align' | translate }">
+    <!-- Search Part  -->
+  <div class="input-group">
+    <label for="search" class="{{'common.classes.input-group-addon' |   translate}}">
+      <i class="oi oi-magnifying-glass"></i>
+    </label>
+    <input 
+      id="search"
+      name="search"
+      [(ngModel)]="hotelName"
+      class="form-control" 
+      placeholder="{{'hotel-name' | translate}}" 
+    >
+  </div>
+  <!-- Price Filter -->
+  <div class="form-group mt-4">
+    <label for="slider">{{'price-filter' | translate}} {{price}}</label>
+    <input [(ngModel)]="price" 
+      type="range"
+      [min]="priceFilter.min"
+      [max]="priceFilter.max"
+      class="form-control"
+      id="slider"
+    >
+  </div>
 </div>

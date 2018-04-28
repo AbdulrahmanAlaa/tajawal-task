@@ -1,19 +1,35 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">{{ 'title' |translate}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <!-- Menu Items -->
-            <li class="nav-item text-capitalize" *ngFor="let route of routes">
-                <a class="nav-link" routerLinkActive="active" [routerLink]='route.path' href="#">{{route.path}}
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<main class="container">
-    <router-outlet></router-outlet>
-</main>
+<div [ngStyle]="{'direction': 'styles.direction' | translate}">
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">{{ 'title' |translate}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <!-- Menu Items -->
+                <li class="nav-item text-capitalize" *ngFor="let route of routes">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]='route.path' href="#">{{route.name}}
+                    </a>
+                </li>
+                <li class="nav-item text-capitalize">
+                    <!-- Language DropDown -->
+                    <div class="btn-group"  dropdown>
+                        <button (click)="languageChanged($event)" id="button-basic" dropdownToggle type="button" class="nav-link btn btn-link dropdown-toggle"
+                                aria-controls="dropdown-basic">
+                         {{'common.language'|translate}} 
+                        </button>
+                        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                            role="menu" aria-labelledby="button-basic">
+                          <li (click)="languageChanged('ar')" role="menuitem"><span class="dropdown-item" href="#">عربي</span></li>
+                          <li (click)="languageChanged('en')" role="menuitem"><span class="dropdown-item" href="#">English</span></li>
+                        </ul>
+                      </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <router-outlet></router-outlet>
+    </main>
+</div>
