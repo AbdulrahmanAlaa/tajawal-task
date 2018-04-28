@@ -5,21 +5,22 @@ import { Subject } from 'rxjs/Subject';
 @Component({
   selector: 'tj-hotel-list',
   templateUrl: './hotel-list.component.html',
-  styleUrls: ['./hotel-list.component.scss']
 })
 export class HotelListComponent implements OnInit {
+  
+  /** holds hotel name to filter all hotels  */
+  public hotelName:string = '';
 
+  /** holds hotel price filter */
   public hotelPrice: string;
   
   /** holds all hotels retrieved from service */
   public hotels;
   
-  public hotelName:string = '';
 
   constructor(private hotelService: HotelService) { }
 
   ngOnInit() {
-    
     this.hotelService.hotels.subscribe((data) => {
       this.hotels = data;
     });

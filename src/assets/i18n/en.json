@@ -1,0 +1,26 @@
+{
+    "title": "Tajawal",
+    "no-hotels": "No hotels found",
+    "common":{
+        "required":"please fill in this field"
+    },
+    "search": {
+        "title": "Search",
+        "from":"From",
+        "to":"To",
+        "start-validation":"the start date shall not be after end date",
+        "end-validation":"the end date shall not be before start date"
+    },
+    "hotel-item":{
+        "name":"Name:",
+        "price":"Price:",
+        "city":"City:"
+    },
+    "price-filter":"Price Filter:",
+    "price":"price...",
+    "hotel-name":"Hotel Name ...",
+    "hotel-header":{
+        "sort-name":"sort by name",
+        "sort-price":"sort by price"
+    }
+}

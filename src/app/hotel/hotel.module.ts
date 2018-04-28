@@ -9,12 +9,22 @@ import { HotelHeaderComponent } from './hotel-header/hotel-header.component';
 import { NoContentComponent } from './no-content/no-content.component';
 import { FilterhotelPipe } from '../shared/pipes/filterhotel.pipe';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from '../app.module';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     HotelRoutingModule,
-    FormsModule
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   declarations: [
     HotelComponent,

@@ -14,12 +14,10 @@ import { FilterhotelPipe } from './shared/pipes/filterhotel.pipe';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   // added cahing prevention for each deployment in prod mode 
-  const random = Math.floor(Math.random() * (999999 - 100000)) + 100000;
-  return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json?v='+random);
+  return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
 }
 
 

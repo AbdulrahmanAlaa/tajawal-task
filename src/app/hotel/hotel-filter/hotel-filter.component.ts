@@ -4,15 +4,17 @@ import { HotelService } from '../../shared/services/hotel.service';
 
 @Component({
   selector: 'tj-hotel-filter',
-  templateUrl: './hotel-filter.component.html',
-  styleUrls: ['./hotel-filter.component.scss']
+  templateUrl: './hotel-filter.component.html'
 })
 export class HotelFilterComponent implements OnInit {
 
+  /** holds current hotel filter name  */
   private _hotelName = '';
 
+  /** holds current hotel filter price  */  
   private _price = 0;
 
+  /** holds current prices filters as max and min  */
   public priceFilter = { max: 0, min: 0 };
 
   // Hotel Name PROP
@@ -41,6 +43,7 @@ export class HotelFilterComponent implements OnInit {
     
     // Get min and max price from all hotels 
     this.hotelService.hotels.subscribe((hotels) => {
+      // Set's current hotel max price and min price 
       const sortedHotels = [...hotels].sort((h1, h2) => h1.price > h2.price ? 1 : -1);
       const max = sortedHotels.pop();
       const min = sortedHotels.shift();
