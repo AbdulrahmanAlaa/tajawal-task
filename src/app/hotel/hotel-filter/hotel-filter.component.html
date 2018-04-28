@@ -1,19 +1,24 @@
-    <!-- Search Part  -->
+<!-- Search Part  -->
 <div class="input-group">
   <label for="search" class="input-group-addon">
     <i class="oi oi-magnifying-glass"></i>
   </label>
   <input 
-  id="search"
-  name="search"
-  (change)="changePrice($event)" 
-  class="form-control" 
-  placeholder="Hotel Name ..." 
+    id="search"
+    name="search"
+    [(ngModel)]="hotelName"
+    class="form-control" 
+    placeholder="Hotel Name ..." 
   >
 </div>
-
-    <!-- Price Filter -->
+<!-- Price Filter -->
 <div class="form-group mt-4">
-  <label for="slider">Price Filter: </label>
-  <input type="range" class="form-control" id="slider" placeholder="price...">
+  <label for="slider">Price Filter: {{price}}</label>
+  <input [(ngModel)]="price" 
+    type="range"
+    [min]="priceFilter.min"
+    max="priceFilter.max"
+    class="form-control"
+    id="slider"
+    placeholder="price...">
 </div>

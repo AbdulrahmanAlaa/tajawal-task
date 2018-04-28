@@ -8,7 +8,9 @@ import { SearchHotelComponent } from './search-hotel/search-hotel.component';
 import { HotelComponent } from './hotel/hotel.component';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { NoContentComponent } from './hotels/no-content/no-content.component';
+import { HotelService } from './shared/services/hotel.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FilterhotelPipe } from './shared/pipes/filterhotel.pipe';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import { NoContentComponent } from './hotels/no-content/no-content.component';
     SearchHotelComponent
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BsDatepickerModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    HotelService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

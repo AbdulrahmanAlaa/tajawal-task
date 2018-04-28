@@ -1,11 +1,13 @@
-<div class="card-body">
-  <p class="card-text">
-    <strong>Name:</strong> Hotel Name
-  </p>
-  <p class="card-text">
-    <strong>Price:</strong> 125 AED
-  </p>
-  <p class="card-text">
-    <strong>City:</strong> Dubai
-  </p>
+<div class="card ">
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Name:</strong> {{hotel.name}}
+    </p>
+    <p class="card-text">
+      <strong>Price:</strong> {{ hotel.price | currency:'UAD':'symbol':'2.0-1'}} 
+    </p>
+    <p class="card-text">
+      <strong>City:</strong> {{hotel.city}}
+    </p>
+  </div>
 </div>

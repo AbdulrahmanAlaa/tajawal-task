@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { HotelService } from '../shared/services/hotel.service';
+import { Router } from '@angular/router';
+import { pages } from '../config/pages-config';
 @Component({
   selector: 'tj-search-hotel',
   templateUrl: './search-hotel.component.html',
@@ -20,9 +23,10 @@ export class SearchHotelComponent implements OnInit {
   public dateError: boolean = false;
 
   constructor(
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private hotelService: HotelService,
+    private router: Router
   ) { }
-
 
   ngOnInit() {
     //intializing the default Model-Driven form
@@ -31,16 +35,6 @@ export class SearchHotelComponent implements OnInit {
       to: ['', (c) => this.validateDate(c, this)]
     });
   }
-  /**
-   * Callig api to get list of results
-   */
-  submit() {
-    this.submitted = true;
-    if(this.form.valid && !this.dateError ){
-      // Query the Api with provided dates
-    }
-  }
-
 
   /** validation for from/to  Date */
   validateDate(c: FormControl, context) {
@@ -57,5 +51,19 @@ export class SearchHotelComponent implements OnInit {
       context.dateError = false;
     }
   }
+
+  /**
+   * Callig api to get list of results
+   */
+  submit() {
+    this.submitted = true;
+    if (this.form.valid && !this.dateError) {
+      this.hotelService.getHotels(this.form.value.from, this.form.value.to).subscribe(() => {
+        this.router.navigate([pages.hotels.path]);
+      });
+    }
+  }
+
+
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { HotelService } from '../../shared/services/hotel.service';
 
 @Component({
   selector: 'tj-hotel-filter',
@@ -7,23 +8,45 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./hotel-filter.component.scss']
 })
 export class HotelFilterComponent implements OnInit {
-  public formSearch: FormGroup;
+
+  private _hotelName = '';
+
+  private _price = 0;
+
+  public priceFilter = { max: 0, min: 0 };
+
+  // Hotel Name PROP
+  get hotelName() {
+    return this._hotelName;
+  }
+  set hotelName(val) {
+    this.hotelService.searchHotelByName(val);
+    this._hotelName = val;
+  }
+
+  // Price PROP
+  get price() {
+    return this._price;
+  }
+  set price(val) {
+    this.hotelService.searchHotelByPrice(val);
+    this._price = val;
+  }
+
   constructor(
-    private _fb : FormBuilder
+    private hotelService: HotelService
   ) { }
 
   ngOnInit() {
-    this._fb.group({
-      search:['',Validators.required]
+    
+    // Get min and max price from all hotels 
+    this.hotelService.hotels.subscribe((hotels) => {
+      const sortedHotels = [...hotels].sort((h1, h2) => h1.price > h2.price ? 1 : -1);
+      const max = sortedHotels.pop();
+      const min = sortedHotels.shift();
+      this.priceFilter = { max: max && max.price, min: min && min.price };
+      this.price = this.priceFilter && this.priceFilter.max || 0;
     });
-  }
-
-  submit($event){
-    console.log('clicked',$event);
-    $event.preventDeafult();
-    if (this.formSearch.valid) {
-      
-    }
   }
 
 }

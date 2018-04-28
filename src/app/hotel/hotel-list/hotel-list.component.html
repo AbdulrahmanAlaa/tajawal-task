@@ -1,35 +1,7 @@
-<div class="card-columns mt-4">
-  <tj-hotel-item class="card">
+<div class="mt-4 col-lg-12 row" >
+  <tj-hotel-item [hotel]="hotel" *ngFor="let hotel of hotels | filterhotel:'name':hotelName | filterhotel:'price':hotelPrice" class="col-lg-4 p-2">
   </tj-hotel-item>
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
-  
-  <tj-hotel-item class="card">
-  </tj-hotel-item>
+</div>  
+<div class="mt-4"  >
+  <tj-no-content *ngIf="!this.hotels.length"></tj-no-content>
 </div>
-<tj-no-content></tj-no-content>
