@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HotelHeaderComponent } from './hotel-header.component';
+import { HotelService } from '../../shared/services/hotel.service';
+import { HotelServiceMocking } from '../../shared/mocks/services/hotel-mock.service';
 
 describe('HotelHeaderComponent', () => {
   let component: HotelHeaderComponent;
@@ -8,6 +10,12 @@ describe('HotelHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: HotelService,
+          useClass: HotelServiceMocking
+        }
+      ],
       declarations: [ HotelHeaderComponent ]
     })
     .compileComponents();

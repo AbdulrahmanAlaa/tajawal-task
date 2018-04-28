@@ -7,6 +7,7 @@ import { pages } from './config/pages-config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  //Load Navigation links from pages config
   public routes = Object.keys(pages).map((key, index) => {
     return {path:pages[key].path};
   });

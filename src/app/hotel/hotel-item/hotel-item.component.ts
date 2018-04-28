@@ -6,6 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hotel-item.component.scss']
 })
 export class HotelItemComponent  {
-  @Input() hotel
+  @Input() hotel;
   
 }

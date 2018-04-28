@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchHotelComponent } from './search-hotel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { HotelService } from '../shared/services/hotel.service';
+import { HotelServiceMocking } from '../shared/mocks/services/hotel-mock.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SearchHotelComponent', () => {
   let component: SearchHotelComponent;
@@ -8,9 +13,21 @@ describe('SearchHotelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchHotelComponent ]
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        BsDatepickerModule.forRoot()
+      ],
+      providers: [
+        {
+          provide: HotelService,
+          useClass: HotelServiceMocking
+        }
+      ],
+      declarations: [SearchHotelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
