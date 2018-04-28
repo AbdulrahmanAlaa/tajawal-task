@@ -19,6 +19,7 @@ then run the following command `ng serve -o --port 5000` the project shall be ru
     can be tested using `ng test --code-coverage` then navigate to `coverage/index.html`
 
 * Multi language support
+to test any other language please change **defines.ts** `DEFAULT_LANGUAGE` to be `ar` 
 
 * Using `ngx-bootstrap` with overriding for better look and feel
 

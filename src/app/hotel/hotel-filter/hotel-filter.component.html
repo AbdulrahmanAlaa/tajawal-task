@@ -13,12 +13,12 @@
 </div>
 <!-- Price Filter -->
 <div class="form-group mt-4">
-  <label for="slider">{{'price-filter' |translate}} {{price}}</label>
+  <label for="slider">{{'price-filter' | translate}} {{price}}</label>
   <input [(ngModel)]="price" 
     type="range"
     [min]="priceFilter.min"
-    max="priceFilter.max"
+    [max]="priceFilter.max"
     class="form-control"
     id="slider"
-    placeholder="{{'price'|translate}}">
+   >
 </div>

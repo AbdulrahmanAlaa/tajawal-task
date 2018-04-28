@@ -1,10 +1,10 @@
 <div class="mt-4 d-flex justify-content-between">
   <div>
-    {{'hotel-header.total-night'|translate}} 0
+    {{'hotel-header.total-night'| translate}} {{totalNights}}
   </div>
   <div>
     <button (click)="sortBy('name')" class="btn btn-default text-capitalize">
-      {{'hotel-header.sort-name'|translate}}
+      {{'hotel-header.sort-name'| translate}}
     </button>
     <button (click)="sortBy('price')" class="btn btn-default text-capitalize">
       {{'hotel-header.sort-price'|translate}}

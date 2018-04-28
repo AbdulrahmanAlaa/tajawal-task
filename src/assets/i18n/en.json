@@ -21,6 +21,7 @@
     "hotel-name":"Hotel Name ...",
     "hotel-header":{
         "sort-name":"sort by name",
-        "sort-price":"sort by price"
+        "sort-price":"sort by price",
+        "total-night":"Total Nights:"
     }
 }

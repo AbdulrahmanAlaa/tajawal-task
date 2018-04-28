@@ -18,13 +18,7 @@ import { HttpClient } from '@angular/common/http';
     CommonModule,
     HotelRoutingModule,
     FormsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
+    TranslateModule
   ],
   declarations: [
     HotelComponent,
