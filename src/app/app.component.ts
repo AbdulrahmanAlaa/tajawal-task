@@ -6,15 +6,19 @@ import { LANGUAGES, DEFAULT_LANGUAGE } from './config/defines';
 @Component({
   selector: 'tj-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  
+  /**
+   * parameters passed by angular Dependency Injection 
+   * @param translate  
+   */
   constructor(
     private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
-    // Loading initial language
+     //Configure the Language to be English by default
     this.translate.addLangs(LANGUAGES);
     this.translate.setDefaultLang(DEFAULT_LANGUAGE);
     this.translate.use(DEFAULT_LANGUAGE);
