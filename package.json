@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test --browsers PhantomJS",
+    "test": "ng test --single-run --browsers PhantomJS",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json"
