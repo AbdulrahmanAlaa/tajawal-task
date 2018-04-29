@@ -4,7 +4,7 @@ node_js:
   - "7"
 before_install:
   - sudo apt-get install build-essential libssl-dev libffi-dev python-dev
-  - npm install -g node-gyp socket.io
+  - sudo npm install -g node-gyp socket.io
   - sudo apt-get update
   - sudo apt-get install python2.7
-  - sudo apt-get install python3.5.2
+  - sudo apt-get install python3.6
