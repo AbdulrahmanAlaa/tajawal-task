@@ -1,4 +1,7 @@
-language: node_js
+language: node_js,python
 node_js:
   - "iojs"
   - "7"
+python:
+  - "2.6"
+  - "2.7"
