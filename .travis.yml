@@ -1,7 +1,7 @@
-language: node_js,python
+language: node_js
 node_js:
   - "iojs"
   - "7"
-python:
-  - "2.6"
-  - "2.7"
+before_script:
+  - sudo apt-get update
+  - sudo apt-get install python2.7
