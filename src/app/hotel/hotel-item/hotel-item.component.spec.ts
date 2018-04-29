@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HotelItemComponent } from './hotel-item.component';
 import { Hotel } from '../../shared/interfaces/hotel.interface';
+import {HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from '../../app.module';
 
 describe('HotelItemComponent', () => {
   let component: HotelItemComponent;
@@ -9,6 +12,15 @@ describe('HotelItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[ 
+        HttpClientModule ,
+        TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      })],
       declarations: [HotelItemComponent]
     })
       .compileComponents();

@@ -4,6 +4,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Hotel } from '../../interfaces/hotel.interface';
 export class HotelServiceMocking {
 
+    /** holds the count for nights between from and to  */
+    public totalNights = new BehaviorSubject(0);
+    
     /** holds all hotels from server */
     public hotels = new BehaviorSubject([]);
   

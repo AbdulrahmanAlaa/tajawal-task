@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { FilterhotelPipe } from '../../shared/pipes/filterhotel.pipe';
 import { HotelService } from '../../shared/services/hotel.service';
 import { HotelServiceMocking } from '../../shared/mocks/services/hotel-mock.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from '../../app.module';
 
 
 describe('HotelFilterComponent', () => {
@@ -13,8 +16,16 @@ describe('HotelFilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
-      providers: [
+      imports:[ 
+        FormsModule,
+        HttpClientModule ,
+        TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      })],     providers: [
         {
           provide: HotelService,
           useClass: HotelServiceMocking

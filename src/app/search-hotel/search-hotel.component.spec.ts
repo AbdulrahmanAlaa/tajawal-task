@@ -6,6 +6,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HotelService } from '../shared/services/hotel.service';
 import { HotelServiceMocking } from '../shared/mocks/services/hotel-mock.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from '../app.module';
 
 describe('SearchHotelComponent', () => {
   let component: SearchHotelComponent;
@@ -17,7 +20,16 @@ describe('SearchHotelComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         RouterTestingModule,
-        BsDatepickerModule.forRoot()
+        BsDatepickerModule.forRoot(),
+        FormsModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        }),
       ],
       providers: [
         {

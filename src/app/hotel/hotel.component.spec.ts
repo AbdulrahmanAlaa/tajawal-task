@@ -10,6 +10,9 @@ import { HotelItemComponent } from './hotel-item/hotel-item.component';
 import { NoContentComponent } from './no-content/no-content.component';
 import { HotelServiceMocking } from '../shared/mocks/services/hotel-mock.service';
 import { HotelService } from '../shared/services/hotel.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpLoaderFactory } from '../app.module';
 
 describe('HotelComponent', () => {
   let component: HotelComponent;
@@ -18,7 +21,15 @@ describe('HotelComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        }),
       ],
       providers: [
         {
