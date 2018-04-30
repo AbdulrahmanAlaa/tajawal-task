@@ -6,3 +6,9 @@ before_install:
   - npm install -g node-gyp socket.io
   - sudo apt-get update
   - sudo apt-get install python2.7
+script:
+  - npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: "c951e33f-7b3d-4228-9d58-4bfb880d14cd"
