@@ -8,8 +8,6 @@ before_install:
   - sudo apt-get install python2.7
 script:
   - npm run build
-before_deploy:
-  - cd dist
 deploy:
   provider: heroku
   api_key:
