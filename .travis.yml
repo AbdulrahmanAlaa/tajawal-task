@@ -11,4 +11,5 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: "c951e33f-7b3d-4228-9d58-4bfb880d14cd"
+    secure: c951e33f-7b3d-4228-9d58-4bfb880d14cd
+    app: tajawal
