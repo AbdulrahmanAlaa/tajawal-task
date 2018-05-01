@@ -2,7 +2,7 @@
   "name": "tajawal",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
+  "scripts": { 
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
