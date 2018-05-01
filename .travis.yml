@@ -3,11 +3,13 @@ node_js:
   - 6.9.5
 cache: yarn
 before_install:
-  - yarn i -g @angular/cli@latest
-install: yarn i
+  - yarn global add @angular/cli@latest
+install: yarn
 script:
   - npm run test
   - npm run build
+after_script:
+  - chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
 deploy:
   provider: heroku
   api_key:
