@@ -4,9 +4,13 @@ node_js:
 cache: yarn
 before_install:
   - yarn global add @angular/cli@latest
-install: yarn
 script:
   - npm run build
+before_deploy:
+  - cp server.js dist/server.js
+  - cd dist 
+  - yarn init --yes
+  - yarn add express 
 deploy:
   provider: heroku
   api_key:
