@@ -6,10 +6,7 @@ before_install:
   - yarn global add @angular/cli@latest
 install: yarn
 script:
-  - npm run test
   - npm run build
-after_script:
-  - chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
 deploy:
   provider: heroku
   api_key:
