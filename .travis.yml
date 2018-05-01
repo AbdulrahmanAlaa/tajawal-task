@@ -1,9 +1,10 @@
 language: node_js
 node_js:
   - 6.9.5
+cache: yarn
 before_install:
-  - npm i -g @angular/cli@latest
-install: npm i
+  - yarn i -g @angular/cli@latest
+install: yarn i
 script:
   - npm run test
   - npm run build
