@@ -11,7 +11,8 @@ before_deploy:
   - cp server.js dist/server.js
   - cd dist 
   - yarn init --yes
-  - yarn add express 
+  - yarn add express
+  - dir 
 deploy:
   provider: heroku
   api_key:
